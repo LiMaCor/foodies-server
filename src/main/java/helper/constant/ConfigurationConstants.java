@@ -11,7 +11,7 @@ public class ConfigurationConstants {
     public static final String versionDate = "January 2018";
     public static final String author = "Ismael Garcia Lorenzo";
     public static final String authorMail = "kysuke87{at}gmail{dot}com";
-    public static final String sources = "https://github.com/rafaelaznar/gesane-server";
+    public static final String sources = "https://github.com/Isgarlo87/foodies-server.git";
     public static final int programDalay = 0;
 
 }
