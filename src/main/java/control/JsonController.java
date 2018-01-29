@@ -70,7 +70,7 @@ public class JsonController extends HttpServlet {
                     oConnection = oPooledConnection.newConnection();
                     out.print("<h3>Database Connection ONLINE</h3>");
                 } catch (Exception ex) {
-                    out.print("<h3>Database Conexión OFFLINE</h3>");
+                    out.print("<h3>Database Conexion OFFLINE</h3>");
                 } finally {
                     out.println("</body>");
                     out.println("</html>");
