@@ -12,6 +12,7 @@ public class EnumHelper {
         String,
         Integer,
         Decimal,
+        Double,
         Date,
         Datetime,
         Boolean,

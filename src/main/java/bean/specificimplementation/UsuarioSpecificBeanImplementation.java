@@ -6,13 +6,7 @@ import bean.helper.MetaBeanHelper;
 import bean.meta.publicinterface.MetaObjectBeanInterface;
 import bean.meta.publicinterface.MetaPropertyBeanInterface;
 import helper.EnumHelper;
-import helper.Log4jHelper;
 import helper.constant.RegexConstants;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Date;
 
 @MetaObjectBeanInterface(
         TableName = "usuario",
@@ -87,7 +81,7 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     @MetaPropertyBeanInterface(
             ShortName = "Tel.1",
             LongName = "Teléfono 1",
-            Description = "Primer teléfono del paciente",
+            Description = "Primer teléfono del usuario",
             Type = EnumHelper.FieldType.String,
             IsRequired = false,
             IsForeignKeyDescriptor = false,
@@ -101,7 +95,7 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     @MetaPropertyBeanInterface(
             ShortName = "Dir.",
             LongName = "Dirección",
-            Description = "Dirección del paciente",
+            Description = "Dirección del cliente",
             Type = EnumHelper.FieldType.String,
             IsRequired = false,
             RegexPattern = RegexConstants.direction,
@@ -131,7 +125,7 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     @MetaPropertyBeanInterface(
             ShortName = "Cod. Postal",
             LongName = "Código Postal",
-            Description = "Código Postal del paciente",
+            Description = "Código Postal del cliente",
             Type = EnumHelper.FieldType.Integer,
             RegexPattern = "[0-9]{5,5}",
             RegexHelp = "5 dígitos",
