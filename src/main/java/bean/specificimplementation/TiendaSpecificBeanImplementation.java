@@ -11,7 +11,7 @@ import helper.constant.RegexConstants;
         TableName = "tienda",
         SingularDescription = "Tienda",
         PluralDescription = "Tiendas",
-        Icon = "fa fa-cutlery",
+        Icon = "fa fa-university",
         Type = EnumHelper.SourceType.Table
 )
 

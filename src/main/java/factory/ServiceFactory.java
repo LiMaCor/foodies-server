@@ -5,6 +5,10 @@ import helper.EncodingHelper;
 import service.specificimplementation.TipousuarioSpecificServiceImplementation;
 import service.specificimplementation.UsuarioSpecificServiceImplementation;
 import javax.servlet.http.HttpServletRequest;
+import service.specificimplementation.ExtrasSpecificServiceImplementation;
+import service.specificimplementation.LineapedidoSpecificServiceImplementation;
+import service.specificimplementation.PedidoSpecificServiceImplementation;
+import service.specificimplementation.PlatoSpecificServiceImplementation;
 import service.specificimplementation.TicketSpecificServiceImplementation;
 import service.specificimplementation.TiendaSpecificServiceImplementation;
 import service.specificimplementation.TipoplatoSpecificServiceImplementation;
@@ -176,6 +180,39 @@ public class ServiceFactory {
                 }
                 break;
 
+            case "plato":
+                PlatoSpecificServiceImplementation oPlatoService = new PlatoSpecificServiceImplementation(oRequest);
+                switch (op) {
+                    case "getmetadata":
+                        oReplyBean = oPlatoService.getMetaData();
+                        break;
+                    case "getobjectmetadata":
+                        oReplyBean = oPlatoService.getObjectMetaData();
+                        break;
+                    case "getpropertiesmetadata":
+                        oReplyBean = oPlatoService.getPropertiesMetaData();
+                        break;
+                    case "get":
+                        oReplyBean = oPlatoService.get();
+                        break;
+                    case "set":
+                        oReplyBean = oPlatoService.set();
+                        break;
+                    case "remove":
+                        oReplyBean = oPlatoService.remove();
+                        break;
+                    case "getpage":
+                        oReplyBean = oPlatoService.getPage();
+                        break;
+                    case "getcount":
+                        oReplyBean = oPlatoService.getCount();
+                        break;
+                    default:
+                        oReplyBean = new ReplyBeanHelper(500, EncodingHelper.quotate("Operation not found : Please contact your administrator"));
+                        break;
+                }
+                break;
+
             case "tipoplato":
                 TipoplatoSpecificServiceImplementation oTipoplatoService = new TipoplatoSpecificServiceImplementation(oRequest);
                 switch (op) {
@@ -202,6 +239,105 @@ public class ServiceFactory {
                         break;
                     case "getcount":
                         oReplyBean = oTipoplatoService.getCount();
+                        break;
+                    default:
+                        oReplyBean = new ReplyBeanHelper(500, EncodingHelper.quotate("Operation not found : Please contact your administrator"));
+                        break;
+                }
+                break;
+
+            case "pedido":
+                PedidoSpecificServiceImplementation oPedidoService = new PedidoSpecificServiceImplementation(oRequest);
+                switch (op) {
+                    case "getmetadata":
+                        oReplyBean = oPedidoService.getMetaData();
+                        break;
+                    case "getobjectmetadata":
+                        oReplyBean = oPedidoService.getObjectMetaData();
+                        break;
+                    case "getpropertiesmetadata":
+                        oReplyBean = oPedidoService.getPropertiesMetaData();
+                        break;
+                    case "get":
+                        oReplyBean = oPedidoService.get();
+                        break;
+                    case "set":
+                        oReplyBean = oPedidoService.set();
+                        break;
+                    case "remove":
+                        oReplyBean = oPedidoService.remove();
+                        break;
+                    case "getpage":
+                        oReplyBean = oPedidoService.getPage();
+                        break;
+                    case "getcount":
+                        oReplyBean = oPedidoService.getCount();
+                        break;
+                    default:
+                        oReplyBean = new ReplyBeanHelper(500, EncodingHelper.quotate("Operation not found : Please contact your administrator"));
+                        break;
+                }
+                break;
+
+            case "lineapedido":
+                LineapedidoSpecificServiceImplementation oLineapedidoService = new LineapedidoSpecificServiceImplementation(oRequest);
+                switch (op) {
+                    case "getmetadata":
+                        oReplyBean = oLineapedidoService.getMetaData();
+                        break;
+                    case "getobjectmetadata":
+                        oReplyBean = oLineapedidoService.getObjectMetaData();
+                        break;
+                    case "getpropertiesmetadata":
+                        oReplyBean = oLineapedidoService.getPropertiesMetaData();
+                        break;
+                    case "get":
+                        oReplyBean = oLineapedidoService.get();
+                        break;
+                    case "set":
+                        oReplyBean = oLineapedidoService.set();
+                        break;
+                    case "remove":
+                        oReplyBean = oLineapedidoService.remove();
+                        break;
+                    case "getpage":
+                        oReplyBean = oLineapedidoService.getPage();
+                        break;
+                    case "getcount":
+                        oReplyBean = oLineapedidoService.getCount();
+                        break;
+                    default:
+                        oReplyBean = new ReplyBeanHelper(500, EncodingHelper.quotate("Operation not found : Please contact your administrator"));
+                        break;
+                }
+                break;
+
+            case "extras":
+                ExtrasSpecificServiceImplementation oExtrasService = new ExtrasSpecificServiceImplementation(oRequest);
+                switch (op) {
+                    case "getmetadata":
+                        oReplyBean = oExtrasService.getMetaData();
+                        break;
+                    case "getobjectmetadata":
+                        oReplyBean = oExtrasService.getObjectMetaData();
+                        break;
+                    case "getpropertiesmetadata":
+                        oReplyBean = oExtrasService.getPropertiesMetaData();
+                        break;
+                    case "get":
+                        oReplyBean = oExtrasService.get();
+                        break;
+                    case "set":
+                        oReplyBean = oExtrasService.set();
+                        break;
+                    case "remove":
+                        oReplyBean = oExtrasService.remove();
+                        break;
+                    case "getpage":
+                        oReplyBean = oExtrasService.getPage();
+                        break;
+                    case "getcount":
+                        oReplyBean = oExtrasService.getCount();
                         break;
                     default:
                         oReplyBean = new ReplyBeanHelper(500, EncodingHelper.quotate("Operation not found : Please contact your administrator"));

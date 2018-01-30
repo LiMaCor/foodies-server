@@ -35,13 +35,15 @@ public class ExtrasSpecificBeanImplementation extends TableGenericBeanImplementa
             ShortName = "Precio",
             LongName = "Precio",
             Description = "Precio del plato",
-            Type = EnumHelper.FieldType.Boolean,
+            Type = EnumHelper.FieldType.Double,
             IsRequired = true,
-            RegexPattern = RegexConstants.capitalizedSentence,
-            RegexHelp = RegexConstants.capitalizedSentence_Help,
-            IsForeignKeyDescriptor = true
+            RegexPattern = "[0-9]{5,5}",
+            RegexHelp = "5 dígitos",
+            MaxLength = 5,
+            IsForeignKeyDescriptor = true,
+            IsVisible = true
     )
-    private String precio = "";
+    private Double precio = 0.0;
 
     public ExtrasSpecificBeanImplementation() {
     }
@@ -58,13 +60,12 @@ public class ExtrasSpecificBeanImplementation extends TableGenericBeanImplementa
         this.descripcion = descripcion;
     }
 
-    public String getPrecio() {
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
-    
-    
+
 }

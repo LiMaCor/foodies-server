@@ -12,7 +12,7 @@ import java.util.Date;
         TableName = "ticket",
         SingularDescription = "Ticket del pedido",
         PluralDescription = "Tickets de los pedidos",
-        Icon = "fa fa-list",
+        Icon = "fa fa-ticket",
         Type = EnumHelper.SourceType.Table
 )
 public class TicketSpecificBeanImplementation extends TableGenericBeanImplementation {
@@ -27,7 +27,7 @@ public class TicketSpecificBeanImplementation extends TableGenericBeanImplementa
             IsRequired = true,
             IsVisible = true
     )
-    private Date fecha_alta;
+    private Date fecha_ticket;
 
     @Expose
     @MetaPropertyBeanInterface(
@@ -42,9 +42,9 @@ public class TicketSpecificBeanImplementation extends TableGenericBeanImplementa
 
     @Expose
     @MetaPropertyBeanInterface(
-            ShortName = "Tipo",
-            LongName = "Tipo de usuario",
-            Description = "Tipo de usuario dentro del sistema",
+            ShortName = "Ticket",
+            LongName = "Ticket",
+            Description = "Ticket de linea de pedido",
             Type = EnumHelper.FieldType.String,
             IsRequired = true,
             RegexPattern = RegexConstants.capitalizedSentence,
@@ -60,12 +60,12 @@ public class TicketSpecificBeanImplementation extends TableGenericBeanImplementa
         this.id = id;
     }
 
-    public Date getFecha_alta() {
-        return fecha_alta;
+    public Date getFecha_ticket() {
+        return fecha_ticket;
     }
 
-    public void setFecha_alta(Date fecha_alta) {
-        this.fecha_alta = fecha_alta;
+    public void setFecha_ticket(Date fecha_ticket) {
+        this.fecha_ticket = fecha_ticket;
     }
 
     public Integer getIva() {

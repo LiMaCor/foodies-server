@@ -47,8 +47,16 @@ public class UsuarioSpecificServiceImplementation extends TableGenericServiceImp
         hmObjectsMetaData.put("tienda", oDao.getObjectMetaData());
         oDao = DaoFactory.getDao("ticket", null, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
         hmObjectsMetaData.put("ticket", oDao.getObjectMetaData());
+        oDao = DaoFactory.getDao("plato", null, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
+        hmObjectsMetaData.put("plato", oDao.getObjectMetaData());
         oDao = DaoFactory.getDao("tipoplato", null, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
         hmObjectsMetaData.put("tipoplato", oDao.getObjectMetaData());
+        oDao = DaoFactory.getDao("pedido", null, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
+        hmObjectsMetaData.put("pedido", oDao.getObjectMetaData());
+        oDao = DaoFactory.getDao("lineapedido", null, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
+        hmObjectsMetaData.put("lineapedido", oDao.getObjectMetaData());
+        oDao = DaoFactory.getDao("extras", null, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
+        hmObjectsMetaData.put("extras", oDao.getObjectMetaData());
 
         String strJson = GsonHelper.getGson().toJson(hmObjectsMetaData);
         oReplyBean = new ReplyBeanHelper(200, strJson);

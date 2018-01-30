@@ -17,7 +17,7 @@ public abstract class TableGenericBeanImplementation extends ViewGenericBeanImpl
     @MetaPropertyBeanInterface(
             ShortName = "ID",
             LongName = "Identificador",
-            Description = "Número Identificador de registro",
+            Description = "Numero Identificador de registro",
             IsVisible = true,
             Type = EnumHelper.FieldType.Id
     )
