@@ -20,17 +20,17 @@ public class Logintoken {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response validacion(UsuarioSpecificBeanImplementation usuario) {
+    public Response validacion(UsuarioSpecificBeanImplementation oUsuarioBean) {
 
-        boolean status = UsuarioSpecificDaoImplementation.validacion(usuario.getNombre(), usuario.getPassword());
+        boolean status = UsuarioSpecificDaoImplementation.validacion(oUsuarioBean.getNombre(), oUsuarioBean.getPassword());
         if (status) {
-            String clave = usuario.getPassword();
+            String clave = oUsuarioBean.getPassword();
             long tiempo = System.currentTimeMillis();
             String jwt = Jwts.builder().signWith(SignatureAlgorithm.HS256, clave)
-                                      .setSubject(usuario.getNombre())
+                                      .setSubject(oUsuarioBean.getNombre())
                                       .setIssuedAt(new Date(tiempo) )
                                       .setExpiration(new Date(tiempo+900000))
-                                      .claim("email", usuario.getEmail())
+                                      .claim("email", oUsuarioBean.getEmail())
                                       .compact();
             JsonObject json = Json.createObjectBuilder().add("jwt", jwt).build();
             
