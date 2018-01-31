@@ -169,6 +169,34 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
 
     @Expose(serialize = false)
     @MetaPropertyBeanInterface(
+            Type = EnumHelper.FieldType.Token
+    )
+    private String token;
+
+    @Expose
+    @MetaPropertyBeanInterface(
+            ShortName = "¿Activo?",
+            LongName = "¿Usuario activo?",
+            Description = "¿Usuario activo?",
+            Type = EnumHelper.FieldType.Boolean,
+            IsRequired = true,
+            IsVisible = false
+    )
+    private Integer activo;
+
+    @Expose
+    @MetaPropertyBeanInterface(
+            ShortName = "¿Validado?",
+            LongName = "¿Usuario validado?",
+            Description = "¿Usuario validado?",
+            Type = EnumHelper.FieldType.Boolean,
+            IsRequired = true,
+            IsVisible = false
+    )
+    private Integer validado;
+
+    @Expose(serialize = false)
+    @MetaPropertyBeanInterface(
             Type = EnumHelper.FieldType.ForeignId
     )
     private Integer id_tipousuario = 0;
@@ -215,6 +243,10 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
 
     public String getNombrecompleto() {
         return nombrecompleto;
+    }
+
+    public void setNombrecompleto(String nombrecompleto) {
+        this.nombrecompleto = nombrecompleto;
     }
 
     public String getNombre() {
@@ -297,6 +329,30 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
         this.encargado = encargado;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public Integer getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Integer activo) {
+        this.activo = activo;
+    }
+
+    public Integer getValidado() {
+        return validado;
+    }
+
+    public void setValidado(Integer validado) {
+        this.validado = validado;
+    }
+
     public Integer getId_tipousuario() {
         return id_tipousuario;
     }
@@ -329,4 +385,5 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
         this.obj_tienda = obj_tienda;
     }
 
+   
 }

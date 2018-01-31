@@ -20,6 +20,11 @@ public class UsuarioSpecificDaoImplementation extends TableGenericDaoImplementat
     public UsuarioSpecificDaoImplementation(Connection oPooledConnection, MetaBeanHelper oPuserBean_security, String strWhere) throws Exception {
         super("usuario", oPooledConnection, oPuserBean_security, strWhere);
     }
+    // metodo para el java web token
+    public static boolean validacion(String login, String password) {
+        UsuarioSpecificBeanImplementation oBean = new UsuarioSpecificBeanImplementation();
+        return (login.equals(oBean.getLogin()) && password.equals(oBean.getPassword()));
+    }
 
     public MetaBeanHelper getFromLoginAndPass(UsuarioSpecificBeanImplementation oUsuarioBean) throws Exception {
         PreparedStatement oPreparedStatement = null;
