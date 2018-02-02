@@ -51,7 +51,7 @@ public class LineapedidoSpecificBeanImplementation extends TableGenericBeanImple
     @MetaPropertyBeanInterface(
             Type = EnumHelper.FieldType.ForeignId
     )
-    private Integer id_pedidoo = 0;
+    private Integer id_pedido = 0;
     @Expose(deserialize = false)
     @MetaPropertyBeanInterface(
             ShortName = "Pedido",
@@ -104,12 +104,12 @@ public class LineapedidoSpecificBeanImplementation extends TableGenericBeanImple
         this.importe = importe;
     }
 
-    public Integer getId_pedidoo() {
-        return id_pedidoo;
+    public Integer getId_pedido() {
+        return id_pedido;
     }
 
-    public void setId_pedidoo(Integer id_pedidoo) {
-        this.id_pedidoo = id_pedidoo;
+    public void setId_pedido(Integer id_pedidoo) {
+        this.id_pedido = id_pedidoo;
     }
 
     public MetaBeanHelper getObj_pedido() {
