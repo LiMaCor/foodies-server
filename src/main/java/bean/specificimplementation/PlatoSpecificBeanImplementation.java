@@ -37,7 +37,7 @@ public class PlatoSpecificBeanImplementation extends TableGenericBeanImplementat
             ShortName = "Precio",
             LongName = "Precio",
             Description = "Precio del plato",
-            Type = EnumHelper.FieldType.Double,
+            Type = EnumHelper.FieldType.Decimal,
             IsRequired = true,
             RegexPattern = "[0-9]{5,5}",
             RegexHelp = "5 dígitos",
