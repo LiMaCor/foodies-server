@@ -48,7 +48,7 @@ public class CarritoSpecificServiceImplementation extends TableGenericServiceImp
         ArrayList<CarritoSpecificBeanImplementation> alCarrito = (ArrayList) oRequest.getSession().getAttribute("carrito");
         ReplyBeanHelper oReplyBean = null;
         CarritoSpecificBeanImplementation oCarritoBeanEnCarrito = null;
-        int id = Integer.parseInt(oRequest.getParameter("id")); //fallará aqui porque no reconoce las variables
+        int id = Integer.parseInt(oRequest.getParameter("id"));
         int cantidad = Integer.parseInt(oRequest.getParameter("cantidad"));
         Connection oConnection = null;
         ConnectionInterface oPooledConnection = null;
@@ -91,18 +91,16 @@ public class CarritoSpecificServiceImplementation extends TableGenericServiceImp
     @Override
     public ReplyBeanHelper remove() throws Exception {
         ArrayList<CarritoSpecificBeanImplementation> alCarrito = (ArrayList) oRequest.getSession().getAttribute("carrito");
-        int id = Integer.parseInt(oRequest.getParameter("id")); //no reconoce id, posiblemente por metadato
-        ReplyBeanHelper oReplyBean = null; 
+        int id = Integer.parseInt(oRequest.getParameter("id"));
+        ReplyBeanHelper oReplyBean = null;
         CarritoSpecificBeanImplementation oCarritoBeanEnCarrito = find(id, alCarrito);
         alCarrito.remove(oCarritoBeanEnCarrito);
         Gson oGson = GsonHelper.getGson();
         String strJson = oGson.toJson(alCarrito);
         oReplyBean = new ReplyBeanHelper(200, strJson);
         return oReplyBean;
-
     }
 
-    // list funciona
     public ReplyBeanHelper list() throws Exception {
 
         ArrayList<CarritoSpecificBeanImplementation> alCarrito = (ArrayList) oRequest.getSession().getAttribute("carrito");
@@ -111,12 +109,12 @@ public class CarritoSpecificServiceImplementation extends TableGenericServiceImp
         String strJson = oGson.toJson(alCarrito);
         oReplyBean = new ReplyBeanHelper(200, strJson);
         return oReplyBean;
-
     }
 
+    // falta implementar id_tienda + id_ticket
     public ReplyBeanHelper buy() throws Exception {
         ArrayList<CarritoSpecificBeanImplementation> alCarrito = (ArrayList) oRequest.getSession().getAttribute("carrito");
-        MetaBeanHelper oUsuarioBeanConMetaDatos = (MetaBeanHelper) oRequest.getSession().getAttribute("user"); //no recoge los valores
+        MetaBeanHelper oUsuarioBeanConMetaDatos = (MetaBeanHelper) oRequest.getSession().getAttribute("user");
         ReplyBeanHelper oReplyBean = null;
         Connection oConnection = null;
         ConnectionInterface oPooledConnection = null;
@@ -172,7 +170,7 @@ public class CarritoSpecificServiceImplementation extends TableGenericServiceImp
     public ReplyBeanHelper empty() throws Exception {
         ArrayList<CarritoSpecificBeanImplementation> alCarrito = (ArrayList) oRequest.getSession().getAttribute("carrito");
         ReplyBeanHelper oReplyBean = null;
-        alCarrito.clear();  //empty falla aqui
+        alCarrito.clear();
         Gson oGson = GsonHelper.getGson();
         String strJson = oGson.toJson(alCarrito);
         oReplyBean = new ReplyBeanHelper(200, strJson);

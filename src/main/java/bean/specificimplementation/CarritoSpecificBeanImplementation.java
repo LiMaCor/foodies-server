@@ -42,7 +42,7 @@ public class CarritoSpecificBeanImplementation extends TableGenericBeanImplement
             Description = "Plato",
             Type = EnumHelper.FieldType.ForeignObject,
             IsRequired = true,
-            References = "tipoplato",
+            References = "plato",
             Width = 4
     )
     private MetaBeanHelper obj_plato = null;
