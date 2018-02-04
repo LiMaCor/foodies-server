@@ -34,6 +34,22 @@ public class PlatoSpecificBeanImplementation extends TableGenericBeanImplementat
 
     @Expose
     @MetaPropertyBeanInterface(
+            ShortName = "Exist",
+            LongName = "Existencias",
+            Description = "Existencias del plato",
+            Type = EnumHelper.FieldType.Integer,
+            IsRequired = true,
+            RegexPattern = "[0-9]{5,5}",
+            RegexHelp = "5 dígitos",
+            IsForeignKeyDescriptor = true,
+            Width = 3,
+            MaxLength = 5,
+            IsVisible = true
+    )
+    private Integer existencias = 0;
+
+    @Expose
+    @MetaPropertyBeanInterface(
             ShortName = "Precio",
             LongName = "Precio",
             Description = "Precio del plato",
@@ -97,6 +113,14 @@ public class PlatoSpecificBeanImplementation extends TableGenericBeanImplementat
         this.descripcion = descripcion;
     }
 
+    public Integer getExistencias() {
+        return existencias;
+    }
+
+    public void setExistencias(Integer existencias) {
+        this.existencias = existencias;
+    }
+
     public Double getPrecio() {
         return precio;
     }
@@ -136,5 +160,5 @@ public class PlatoSpecificBeanImplementation extends TableGenericBeanImplementat
     public void setObj_extras(MetaBeanHelper obj_extras) {
         this.obj_extras = obj_extras;
     }
-    
+
 }

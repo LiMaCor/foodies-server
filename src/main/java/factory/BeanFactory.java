@@ -2,6 +2,7 @@ package factory;
 
 import bean.helper.MetaBeanHelper;
 import bean.publicinterface.GenericBeanInterface;
+import bean.specificimplementation.CarritoSpecificBeanImplementation;
 import bean.specificimplementation.ExtrasSpecificBeanImplementation;
 import bean.specificimplementation.LineapedidoSpecificBeanImplementation;
 import bean.specificimplementation.PedidoSpecificBeanImplementation;
@@ -44,6 +45,9 @@ public class BeanFactory {
                 break;
             case "pedido":
                 oBean = new PedidoSpecificBeanImplementation();
+                break;
+            case "carrito":
+                oBean = new CarritoSpecificBeanImplementation();
                 break;
             default:
                 //  oReplyBean = new ReplyBean(500, "Object not found : Please contact your administrator");

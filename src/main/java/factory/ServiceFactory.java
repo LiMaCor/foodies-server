@@ -5,6 +5,7 @@ import helper.EncodingHelper;
 import service.specificimplementation.TipousuarioSpecificServiceImplementation;
 import service.specificimplementation.UsuarioSpecificServiceImplementation;
 import javax.servlet.http.HttpServletRequest;
+import service.specificimplementation.CarritoSpecificServiceImplementation;
 import service.specificimplementation.ExtrasSpecificServiceImplementation;
 import service.specificimplementation.LineapedidoSpecificServiceImplementation;
 import service.specificimplementation.PedidoSpecificServiceImplementation;
@@ -338,6 +339,30 @@ public class ServiceFactory {
                         break;
                     case "getcount":
                         oReplyBean = oExtrasService.getCount();
+                        break;
+                    default:
+                        oReplyBean = new ReplyBeanHelper(500, EncodingHelper.quotate("Operation not found : Please contact your administrator"));
+                        break;
+                }
+                break;
+
+            case "carrito":
+                CarritoSpecificServiceImplementation oCarritoService = new CarritoSpecificServiceImplementation(oRequest);
+                switch (op) {
+                    case "add":
+                        oReplyBean = oCarritoService.add();
+                        break;
+                    case "remove":
+                        oReplyBean = oCarritoService.remove();
+                        break;
+                    case "list":
+                        oReplyBean = oCarritoService.list();
+                        break;
+                    case "buy":
+                        oReplyBean = oCarritoService.buy();
+                        break;
+                    case "empty":
+                        oReplyBean = oCarritoService.empty();
                         break;
                     default:
                         oReplyBean = new ReplyBeanHelper(500, EncodingHelper.quotate("Operation not found : Please contact your administrator"));

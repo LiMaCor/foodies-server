@@ -1,20 +1,18 @@
 package bean.specificimplementation;
 
+import bean.genericimplementation.TableGenericBeanImplementation;
+import bean.helper.MetaBeanHelper;
 import com.google.gson.annotations.Expose;
 
-public class CarritoSpecificBeanImplementation {
+public class CarritoSpecificBeanImplementation extends TableGenericBeanImplementation {
 
     @Expose
     private Integer cantidad;
-    @Expose
-    private PlatoSpecificBeanImplementation oPlato;
+    //--
     @Expose(serialize = false)
     private Integer id_plato = 0;
-
-    public CarritoSpecificBeanImplementation(Integer cantidad, PlatoSpecificBeanImplementation oPlato) {
-        this.cantidad = cantidad;
-        this.oPlato = oPlato;
-    }
+    @Expose(deserialize = false)
+    private MetaBeanHelper obj_plato = null;
 
     public CarritoSpecificBeanImplementation() {
     }
@@ -35,12 +33,12 @@ public class CarritoSpecificBeanImplementation {
         this.id_plato = id_plato;
     }
 
-    public PlatoSpecificBeanImplementation getoPlato() {
-        return oPlato;
+    public MetaBeanHelper getObj_plato() {
+        return obj_plato;
     }
 
-    public void setoPlato(PlatoSpecificBeanImplementation oPlato) {
-        this.oPlato = oPlato;
+    public void setObj_plato(MetaBeanHelper obj_plato) {
+        this.obj_plato = obj_plato;
     }
 
 }
