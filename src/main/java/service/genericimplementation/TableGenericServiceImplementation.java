@@ -103,7 +103,7 @@ public abstract class TableGenericServiceImplementation extends ViewGenericServi
         }
     }
 
-     @Override
+    @Override
     public ReplyBeanHelper remove() throws Exception {
         if (this.checkPermission("remove")) {
             int id = Integer.parseInt(oRequest.getParameter("id"));
@@ -138,4 +138,3 @@ public abstract class TableGenericServiceImplementation extends ViewGenericServi
     }
 
 }
-
