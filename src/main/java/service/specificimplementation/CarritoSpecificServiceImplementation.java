@@ -116,7 +116,7 @@ public class CarritoSpecificServiceImplementation extends TableGenericServiceImp
 
     public ReplyBeanHelper buy() throws Exception {
         ArrayList<CarritoSpecificBeanImplementation> alCarrito = (ArrayList) oRequest.getSession().getAttribute("carrito");
-        MetaBeanHelper oUsuarioBeanConMetaDatos = (MetaBeanHelper) oRequest.getSession().getAttribute("user");
+        MetaBeanHelper oUsuarioBeanConMetaDatos = (MetaBeanHelper) oRequest.getSession().getAttribute("user"); //no recoge los valores
         ReplyBeanHelper oReplyBean = null;
         Connection oConnection = null;
         ConnectionInterface oPooledConnection = null;
