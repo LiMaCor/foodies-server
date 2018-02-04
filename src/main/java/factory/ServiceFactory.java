@@ -349,6 +349,15 @@ public class ServiceFactory {
             case "carrito":
                 CarritoSpecificServiceImplementation oCarritoService = new CarritoSpecificServiceImplementation(oRequest);
                 switch (op) {
+                    case "getmetadata":
+                        oReplyBean = oCarritoService.getMetaData();
+                        break;
+                    case "getobjectmetadata":
+                        oReplyBean = oCarritoService.getObjectMetaData();
+                        break;
+                    case "getpropertiesmetadata":
+                        oReplyBean = oCarritoService.getPropertiesMetaData();
+                        break;
                     case "add":
                         oReplyBean = oCarritoService.add();
                         break;

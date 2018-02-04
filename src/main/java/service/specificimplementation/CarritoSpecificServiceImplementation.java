@@ -22,21 +22,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
+import service.genericimplementation.TableGenericServiceImplementation;
 
-public class CarritoSpecificServiceImplementation {
-     HttpServletRequest oRequest = null;
+public class CarritoSpecificServiceImplementation extends TableGenericServiceImplementation {
+
+    HttpServletRequest oRequest = null;
 
     public CarritoSpecificServiceImplementation(HttpServletRequest request) {
-        oRequest = request;
-    }
-
-    private Boolean checkPermission(String strMethodName) throws Exception {
-        MetaBeanHelper oUsuarioBean = (MetaBeanHelper) oRequest.getSession().getAttribute("user");
-        if (oUsuarioBean != null) {
-            return true;
-        } else {
-            return false;
-        }
+        super(request);
     }
 
     private CarritoSpecificBeanImplementation find(Integer id, ArrayList<CarritoSpecificBeanImplementation> alCarrito) {

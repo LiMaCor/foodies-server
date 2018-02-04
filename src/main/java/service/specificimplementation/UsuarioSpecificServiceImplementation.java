@@ -5,7 +5,6 @@
  */
 package service.specificimplementation;
 
-import com.google.gson.Gson;
 import service.genericimplementation.TableGenericServiceImplementation;
 import bean.helper.MetaBeanHelper;
 import bean.helper.ReplyBeanHelper;
@@ -19,8 +18,6 @@ import factory.DaoFactory;
 import helper.EncodingHelper;
 import helper.GsonHelper;
 import helper.Log4jHelper;
-import helper.RandomHelper;
-import helper.constant.ConfigurationConstants;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
