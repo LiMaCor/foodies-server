@@ -133,8 +133,8 @@ public class CarritoSpecificServiceImplementation extends TableGenericServiceImp
                 Iterator<CarritoSpecificBeanImplementation> iterator = alCarrito.iterator();
                 while (iterator.hasNext()) {
                     CarritoSpecificBeanImplementation oCarritoBean = iterator.next();
-                    MetaBeanHelper oProductoBeanDeCarritoConMetaDatos = oCarritoBean.getObj_plato();
-                    PlatoSpecificBeanImplementation oPlatoBeanDeCarrito = (PlatoSpecificBeanImplementation) oProductoBeanDeCarritoConMetaDatos.getBean();
+                    MetaBeanHelper oPlatoBeanDeCarritoConMetaDatos = oCarritoBean.getObj_plato();
+                    PlatoSpecificBeanImplementation oPlatoBeanDeCarrito = (PlatoSpecificBeanImplementation) oPlatoBeanDeCarritoConMetaDatos.getBean();
                     PlatoSpecificDaoImplementation oPlatoDao = new PlatoSpecificDaoImplementation(oConnection, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
                     MetaBeanHelper oMetaBeanHelper = (MetaBeanHelper) oPlatoDao.get(oPlatoBeanDeCarrito.getId(), ConfigurationConstants.jsonMsgDepth);
                     PlatoSpecificBeanImplementation oPlatoBeanDeDB = (PlatoSpecificBeanImplementation) oMetaBeanHelper.getBean();
