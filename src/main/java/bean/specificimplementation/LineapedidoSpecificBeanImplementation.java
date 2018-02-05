@@ -38,7 +38,7 @@ public class LineapedidoSpecificBeanImplementation extends TableGenericBeanImple
             ShortName = "Importe",
             LongName = "Importe",
             Description = "Importe del pedido",
-            Type = EnumHelper.FieldType.Double,
+            Type = EnumHelper.FieldType.Datetime,
             IsRequired = true,
             RegexPattern = RegexConstants.capitalizedSentence,
             RegexHelp = RegexConstants.capitalizedSentence_Help,
