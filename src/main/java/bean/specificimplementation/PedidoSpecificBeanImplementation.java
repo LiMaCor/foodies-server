@@ -47,23 +47,7 @@ public class PedidoSpecificBeanImplementation extends TableGenericBeanImplementa
     )
     private MetaBeanHelper obj_tienda = null;
 
-    @Expose(serialize = false)
-    @MetaPropertyBeanInterface(
-            Type = EnumHelper.FieldType.ForeignId
-    )
-    private Integer id_ticket = 0;
-    @Expose(deserialize = false)
-    @MetaPropertyBeanInterface(
-            ShortName = "Ticket",
-            LongName = "Ticket",
-            Description = "Ticket del pedido",
-            Type = EnumHelper.FieldType.ForeignObject,
-            IsRequired = true,
-            References = "ticket",
-            Width = 4
-    )
-    private MetaBeanHelper obj_ticket = null;
-
+   
     @Expose(serialize = false)
     @MetaPropertyBeanInterface(
             Type = EnumHelper.FieldType.ForeignId
@@ -110,22 +94,6 @@ public class PedidoSpecificBeanImplementation extends TableGenericBeanImplementa
 
     public void setObj_tienda(MetaBeanHelper obj_tienda) {
         this.obj_tienda = obj_tienda;
-    }
-
-    public Integer getId_ticket() {
-        return id_ticket;
-    }
-
-    public void setId_ticket(Integer id_ticket) {
-        this.id_ticket = id_ticket;
-    }
-
-    public MetaBeanHelper getObj_ticket() {
-        return obj_ticket;
-    }
-
-    public void setObj_ticket(MetaBeanHelper obj_ticket) {
-        this.obj_ticket = obj_ticket;
     }
 
     public Integer getId_usuario() {
