@@ -22,8 +22,8 @@ public class CarritoSpecificBeanImplementation extends TableGenericBeanImplement
             Description = "Cantidad de platos",
             Type = EnumHelper.FieldType.Integer,
             IsRequired = true,
-            RegexPattern = "[0-9]{5,5}",
-            RegexHelp = "5 dígitos",
+            RegexPattern = "[0-9]",
+            RegexHelp = "Solo dígitos",
             MaxLength = 5,
             IsForeignKeyDescriptor = true,
             IsVisible = true
