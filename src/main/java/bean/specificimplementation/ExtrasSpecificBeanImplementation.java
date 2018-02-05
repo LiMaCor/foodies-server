@@ -37,7 +37,7 @@ public class ExtrasSpecificBeanImplementation extends TableGenericBeanImplementa
             Description = "Precio del plato",
             Type = EnumHelper.FieldType.Decimal,
             IsRequired = true,
-            RegexPattern = "[0-9]",
+            RegexPattern = "[0-9]*\\.?[0-9]*",
             RegexHelp = "Solo dígitos",
             MaxLength = 5,
             IsForeignKeyDescriptor = true,

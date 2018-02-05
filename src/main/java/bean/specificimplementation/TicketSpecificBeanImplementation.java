@@ -43,9 +43,9 @@ public class TicketSpecificBeanImplementation extends TableGenericBeanImplementa
 
     @Expose
     @MetaPropertyBeanInterface(
-            ShortName = "Ticket",
-            LongName = "Ticket",
-            Description = "Ticket de linea de pedido",
+            ShortName = "Desc.",
+            LongName = "Descripcion",
+            Description = "Descripcion",
             Type = EnumHelper.FieldType.String,
             IsRequired = true,
             RegexPattern = RegexConstants.capitalizedSentence,

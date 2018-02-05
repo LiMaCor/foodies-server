@@ -25,7 +25,7 @@ public class LineapedidoSpecificBeanImplementation extends TableGenericBeanImple
             Description = "Cantidad de platos",
             Type = EnumHelper.FieldType.Integer,
             IsRequired = true,
-            RegexPattern = "[0-9]",
+            RegexPattern = "[0-9]*",
             RegexHelp = "Solo dígitos",
             MaxLength = 5,
             IsForeignKeyDescriptor = true,
@@ -40,7 +40,7 @@ public class LineapedidoSpecificBeanImplementation extends TableGenericBeanImple
             Description = "Importe del pedido",
             Type = EnumHelper.FieldType.Decimal,
             IsRequired = true,
-            RegexPattern = "[0-9]",
+            RegexPattern = "[0-9]*\\.?[0-9]*",
             RegexHelp = "Solo dígitos",
             IsForeignKeyDescriptor = true,
             IsVisible = true

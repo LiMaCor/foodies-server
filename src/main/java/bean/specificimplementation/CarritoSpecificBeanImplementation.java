@@ -22,7 +22,7 @@ public class CarritoSpecificBeanImplementation extends TableGenericBeanImplement
             Description = "Cantidad de platos",
             Type = EnumHelper.FieldType.Integer,
             IsRequired = true,
-            RegexPattern = "[0-9]",
+            RegexPattern = "[0-9]*",
             RegexHelp = "Solo dígitos",
             MaxLength = 5,
             IsForeignKeyDescriptor = true,
