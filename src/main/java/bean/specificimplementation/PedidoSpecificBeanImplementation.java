@@ -26,6 +26,7 @@ public class PedidoSpecificBeanImplementation extends TableGenericBeanImplementa
             Type = EnumHelper.FieldType.Date,
             RegexHelp = "una fecha correcta",
             IsRequired = true,
+            IsForeignKeyDescriptor = true,
             IsVisible = true
     )
     private Date fecha_pedido;
