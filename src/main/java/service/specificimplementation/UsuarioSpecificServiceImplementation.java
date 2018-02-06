@@ -8,6 +8,7 @@ package service.specificimplementation;
 import service.genericimplementation.TableGenericServiceImplementation;
 import bean.helper.MetaBeanHelper;
 import bean.helper.ReplyBeanHelper;
+import bean.specificimplementation.CarritoSpecificBeanImplementation;
 import bean.specificimplementation.UsuarioSpecificBeanImplementation;
 import connection.publicinterface.ConnectionInterface;
 import dao.specificimplementation.UsuarioSpecificDaoImplementation;
@@ -20,6 +21,7 @@ import helper.GsonHelper;
 import helper.Log4jHelper;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -73,8 +75,10 @@ public class UsuarioSpecificServiceImplementation extends TableGenericServiceImp
                 oConnection = oPooledConnection.newConnection();
                 UsuarioSpecificDaoImplementation oDao = new UsuarioSpecificDaoImplementation(oConnection, (MetaBeanHelper) oRequest.getSession().getAttribute("user"), null);
                 MetaBeanHelper oMetaBeanHelper = oDao.getFromLoginAndPass(oUsuarioBean);
+                ArrayList<CarritoSpecificBeanImplementation> alCarrito = new ArrayList<CarritoSpecificBeanImplementation>();
                 HttpSession oSession = oRequest.getSession();
                 oSession.setAttribute("user", oMetaBeanHelper);
+                oSession.setAttribute("carrito", alCarrito);
                 String strJson = GsonHelper.getGson().toJson(oMetaBeanHelper);
                 oReplyBean = new ReplyBeanHelper(200, strJson);
             } catch (Exception ex) {
