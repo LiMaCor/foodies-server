@@ -29,7 +29,7 @@ public class TipoplatoSpecificBeanImplementation extends TableGenericBeanImpleme
             IsForeignKeyDescriptor = true
     )
     private String descripcion = "";
-
+       
     @Expose(deserialize = false)
     @MetaPropertyBeanInterface(
             ShortName = "Platos del tipo",
