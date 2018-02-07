@@ -19,9 +19,9 @@ public class ExtrasSpecificBeanImplementation extends TableGenericBeanImplementa
 
     @Expose
     @MetaPropertyBeanInterface(
-            ShortName = "Plato",
-            LongName = "Plato",
-            Description = "Plato a elegir",
+            ShortName = "Extra",
+            LongName = "Extra",
+            Description = "Extra a elegir",
             Type = EnumHelper.FieldType.String,
             IsRequired = true,
             RegexPattern = RegexConstants.capitalizedSentence,

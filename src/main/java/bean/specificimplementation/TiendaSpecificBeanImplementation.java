@@ -19,9 +19,9 @@ public class TiendaSpecificBeanImplementation extends TableGenericBeanImplementa
 
     @Expose
     @MetaPropertyBeanInterface(
-            ShortName = "Tipo",
-            LongName = "Tipo de usuario",
-            Description = "Tipo de usuario dentro del sistema",
+            ShortName = "Nombre",
+            LongName = "Nombre de la tienda",
+            Description = "Nombre de la tienda",
             Type = EnumHelper.FieldType.String,
             IsRequired = true,
             RegexPattern = RegexConstants.capitalizedSentence,
@@ -36,7 +36,7 @@ public class TiendaSpecificBeanImplementation extends TableGenericBeanImplementa
             LongName = "Dirección",
             Description = "Dirección de la tienda ",
             Type = EnumHelper.FieldType.String,
-            IsRequired = false,
+            IsRequired = true,
             RegexPattern = RegexConstants.direction,
             RegexHelp = RegexConstants.directionSentence_Help,
             IsForeignKeyDescriptor = false,
