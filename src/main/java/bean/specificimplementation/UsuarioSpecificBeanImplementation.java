@@ -127,7 +127,7 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
             LongName = "Código Postal",
             Description = "Código Postal del cliente",
             Type = EnumHelper.FieldType.Integer,
-            RegexPattern = "[0-9]{5,5}",
+            RegexPattern = "[0-9]*",
             RegexHelp = "5 dígitos",
             IsRequired = false,
             IsForeignKeyDescriptor = false,
