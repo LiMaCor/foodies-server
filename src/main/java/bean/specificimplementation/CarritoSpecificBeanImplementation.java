@@ -10,7 +10,7 @@ import helper.EnumHelper;
 @MetaObjectBeanInterface(        
         SingularDescription = "Carrito",
         PluralDescription = "Carrito",
-        Icon = "fas fa-shopping-cart",
+        Icon = "fa fa-shopping-cart",
         Type = EnumHelper.SourceType.Table
 )
 public class CarritoSpecificBeanImplementation extends TableGenericBeanImplementation {
