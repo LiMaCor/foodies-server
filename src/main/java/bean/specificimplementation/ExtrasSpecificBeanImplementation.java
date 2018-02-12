@@ -32,6 +32,16 @@ public class ExtrasSpecificBeanImplementation extends TableGenericBeanImplementa
 
     @Expose
     @MetaPropertyBeanInterface(
+            ShortName = "Img.",
+            LongName = "Imagen",
+            Description = "Imagen del plato",
+            Type = EnumHelper.FieldType.Imagen,
+            IsVisible = true
+    )
+    private String imagen = "";
+
+    @Expose
+    @MetaPropertyBeanInterface(
             ShortName = "Precio",
             LongName = "Precio",
             Description = "Precio del plato",

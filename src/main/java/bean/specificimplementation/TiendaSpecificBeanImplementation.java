@@ -50,7 +50,7 @@ public class TiendaSpecificBeanImplementation extends TableGenericBeanImplementa
     @MetaPropertyBeanInterface(
             ShortName = "Empleados de la tienda",
             LongName = "Empleados de la tienda",
-            Description = "Personal que trabaja en la tienda",
+            Description = "Usuarios asignados a la tienda",
             Type = EnumHelper.FieldType.Link,
             References = "usuario"
     )
