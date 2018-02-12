@@ -34,13 +34,23 @@ public class PlatoSpecificBeanImplementation extends TableGenericBeanImplementat
 
     @Expose
     @MetaPropertyBeanInterface(
+            ShortName = "Img.",
+            LongName = "Imagen",
+            Description = "Imagen del plato",
+            Type = EnumHelper.FieldType.Imagen,
+            IsVisible = true
+    )
+    private String imagen = "";
+
+    @Expose
+    @MetaPropertyBeanInterface(
             ShortName = "Exist",
             LongName = "Existencias",
             Description = "Existencias del plato",
             Type = EnumHelper.FieldType.Integer,
             IsRequired = true,
             RegexPattern = "[0-9]*",
-            RegexHelp = "Solo dígitos",           
+            RegexHelp = "Solo dígitos",
             Width = 3,
             MaxLength = 5,
             IsVisible = true

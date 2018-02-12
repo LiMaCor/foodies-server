@@ -13,6 +13,7 @@ public class EnumHelper {
         Integer,
         Decimal,
         Double,
+        Imagen,
         Date,
         Datetime,
         Boolean,
