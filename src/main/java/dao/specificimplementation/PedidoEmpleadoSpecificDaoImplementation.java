@@ -24,9 +24,9 @@ public class PedidoEmpleadoSpecificDaoImplementation extends PedidoSpecificDaoIm
 
                 TiendaSpecificBeanImplementation oTienda = (TiendaSpecificBeanImplementation) oUsuario.getObj_tienda().getBean();
                 idTienda = oTienda.getId();
-                strSQLini = "FROM pedido where 1=1 "
-                        + "AND id_usuario= " + idUsuario
-                        + "AND id_tienda= " + idTienda;
+                strSQLini = "FROM pedido where 1=1 "                     
+                        + " AND id_tienda= " + idTienda;
+                // incluir id_usuario(cliente) mediante consulta
                 strSQL = "SELECT * " + strSQLini;
 
                 strCountSQL = "SELECT COUNT(*) " + strSQLini;

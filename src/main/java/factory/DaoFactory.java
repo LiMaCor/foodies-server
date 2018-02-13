@@ -28,10 +28,9 @@ public class DaoFactory {
         switch (ob) {
             case "usuario":
                 if (oPuserBean_security == null) {
-
+                    oDao = (MetaDaoInterface) new UsuarioSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                     break;
                 } else {
-                    oDao = (MetaDaoInterface) new UsuarioSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                     UsuarioSpecificBeanImplementation oUsuario = (UsuarioSpecificBeanImplementation) oPuserBean_security.getBean();
                     MetaBeanHelper oMetaBeanHelper = oUsuario.getObj_tipousuario();
                     TipousuarioSpecificBeanImplementation oTipoUsuario = (TipousuarioSpecificBeanImplementation) oMetaBeanHelper.getBean();
@@ -47,16 +46,17 @@ public class DaoFactory {
                             oDao = (MetaDaoInterface) new UsuarioClienteSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                             break;
                         default:
+                            oDao = null;
                             break;
                     }
                 }
                 break;
+
             case "tipousuario":
                 if (oPuserBean_security == null) {
                     oDao = (MetaDaoInterface) new TipousuarioSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                     break;
                 } else {
-                    oDao = (MetaDaoInterface) new UsuarioSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                     UsuarioSpecificBeanImplementation oUsuario = (UsuarioSpecificBeanImplementation) oPuserBean_security.getBean();
                     MetaBeanHelper oMetaBeanHelper = oUsuario.getObj_tipousuario();
                     TipousuarioSpecificBeanImplementation oTipoUsuario = (TipousuarioSpecificBeanImplementation) oMetaBeanHelper.getBean();
@@ -72,6 +72,7 @@ public class DaoFactory {
                             oDao = (MetaDaoInterface) new TipousuarioClienteSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                             break;
                         default:
+                            oDao = null;
                             break;
                     }
                 }
@@ -89,7 +90,29 @@ public class DaoFactory {
                 oDao = (MetaDaoInterface) new PlatoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                 break;
             case "pedido":
-                oDao = (MetaDaoInterface) new PedidoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                if (oPuserBean_security == null) {
+                    oDao = (MetaDaoInterface) new PedidoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                    break;
+                } else {
+                    UsuarioSpecificBeanImplementation oUsuario = (UsuarioSpecificBeanImplementation) oPuserBean_security.getBean();
+                    MetaBeanHelper oMetaBeanHelper = oUsuario.getObj_tipousuario();
+                    TipousuarioSpecificBeanImplementation oTipoUsuario = (TipousuarioSpecificBeanImplementation) oMetaBeanHelper.getBean();
+                    Integer idTipousuario = oTipoUsuario.getId();
+                    switch (idTipousuario) {
+                        case 1:
+                            oDao = (MetaDaoInterface) new PedidoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                            break;
+                        case 2:
+                            oDao = (MetaDaoInterface) new PedidoEmpleadoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                            break;
+                        case 3:
+                            oDao = (MetaDaoInterface) new PedidoClienteSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                            break;
+                        default:
+                            oDao = null;
+                            break;
+                    }
+                }
                 break;
             case "lineapedido":
                 oDao = (MetaDaoInterface) new LineapedidoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
