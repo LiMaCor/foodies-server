@@ -1,7 +1,6 @@
 package dao.specificimplementation;
 
 import bean.helper.MetaBeanHelper;
-import bean.specificimplementation.LineapedidoSpecificBeanImplementation;
 import bean.specificimplementation.TiendaSpecificBeanImplementation;
 import bean.specificimplementation.TipousuarioSpecificBeanImplementation;
 import bean.specificimplementation.UsuarioSpecificBeanImplementation;
