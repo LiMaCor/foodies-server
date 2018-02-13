@@ -5,6 +5,8 @@ import bean.helper.MetaBeanHelper;
 import bean.specificimplementation.TipousuarioSpecificBeanImplementation;
 import bean.specificimplementation.UsuarioSpecificBeanImplementation;
 import dao.publicinterface.MetaDaoInterface;
+import dao.specificimplementation.ExtrasClienteSpecificDaoImplementation;
+import dao.specificimplementation.ExtrasEmpleadoSpecificDaoImplementation;
 import dao.specificimplementation.ExtrasSpecificDaoImplementation;
 import dao.specificimplementation.LineapedidoSpecificDaoImplementation;
 import dao.specificimplementation.PedidoClienteSpecificDaoImplementation;
@@ -118,7 +120,29 @@ public class DaoFactory {
                 oDao = (MetaDaoInterface) new LineapedidoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
                 break;
             case "extras":
-                oDao = (MetaDaoInterface) new ExtrasSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                if (oPuserBean_security == null) {
+                    oDao = (MetaDaoInterface) new ExtrasSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                    break;
+                } else {
+                    UsuarioSpecificBeanImplementation oUsuario = (UsuarioSpecificBeanImplementation) oPuserBean_security.getBean();
+                    MetaBeanHelper oMetaBeanHelper = oUsuario.getObj_tipousuario();
+                    TipousuarioSpecificBeanImplementation oTipoUsuario = (TipousuarioSpecificBeanImplementation) oMetaBeanHelper.getBean();
+                    Integer idTipousuario = oTipoUsuario.getId();
+                    switch (idTipousuario) {
+                        case 1:
+                            oDao = (MetaDaoInterface) new ExtrasSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                            break;
+                        case 2:
+                            oDao = (MetaDaoInterface) new ExtrasEmpleadoSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                            break;
+                        case 3:
+                            oDao = (MetaDaoInterface) new ExtrasClienteSpecificDaoImplementation(oConnection, oPuserBean_security, strWhere);
+                            break;
+                        default:
+                            oDao = null;
+                            break;
+                    }
+                }
                 break;
 
             default:
