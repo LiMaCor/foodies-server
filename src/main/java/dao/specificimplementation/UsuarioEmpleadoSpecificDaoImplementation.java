@@ -25,8 +25,12 @@ public class UsuarioEmpleadoSpecificDaoImplementation extends UsuarioSpecificDao
                 TiendaSpecificBeanImplementation oTienda = (TiendaSpecificBeanImplementation) oUsuario.getObj_tienda().getBean();
                 idTienda = oTienda.getId();
                 strSQLini = "FROM usuario where 1=1 "
-                        + "AND id_tipousuario=2 "
-                        + "AND id_tienda= " + idTienda;
+                        + "AND (id IN (SELECT distinct id FROM usuario where id_tienda = " + idTienda + " and id_tipousuario=2 ) "
+                        + " OR  id IN (SELECT distinct u.id FROM usuario u, tienda t, usuario u2 "
+                        + "                    WHERE u.id_tipousuario=3 "
+                        + "                      AND u.id_tienda=t.id "
+                        + "                      AND u2.id_tienda= " + idTienda + ")"
+                        + ") ";
 
                 strSQL = "SELECT * " + strSQLini;
                 strCountSQL = "SELECT COUNT(*) " + strSQLini;
