@@ -1,23 +1,36 @@
 package dao.specificimplementation;
 
-import bean.genericimplementation.TableGenericBeanImplementation;
 import bean.helper.MetaBeanHelper;
-import dao.genericimplementation.TableGenericDaoImplementation;
+import bean.specificimplementation.TiendaSpecificBeanImplementation;
+import bean.specificimplementation.TipousuarioSpecificBeanImplementation;
+import bean.specificimplementation.UsuarioSpecificBeanImplementation;
 import java.sql.Connection;
 
-public class LineapedidoEmpleadoSpecificDaoImplementation extends TableGenericDaoImplementation {
+public class LineapedidoEmpleadoSpecificDaoImplementation extends LineapedidoSpecificDaoImplementation {
+
+    private Integer idLinpedido = 1; // trampa
+    private Integer idUsuario = 0;
 
     public LineapedidoEmpleadoSpecificDaoImplementation(Connection oPooledConnection, MetaBeanHelper oPuserBean_security, String strWhere) throws Exception {
-        super("lineapedido", oPooledConnection, oPuserBean_security, strWhere);
-    }
+        super(oPooledConnection, oPuserBean_security, strWhere);
 
-    @Override
-    public Integer set(TableGenericBeanImplementation oBean) throws Exception {
-        return 0;
-    }
+        UsuarioSpecificBeanImplementation oUsuario = (UsuarioSpecificBeanImplementation) oPuserBean_security.getBean();
+        idUsuario = oUsuario.getId();
+        MetaBeanHelper ombhTipousuario = (MetaBeanHelper) oUsuario.getObj_tipousuario();
+        TipousuarioSpecificBeanImplementation oTipousuario = (TipousuarioSpecificBeanImplementation) ombhTipousuario.getBean();
+        if (oTipousuario.getId() == 2) {
+            String strSQLini = "";
 
-    @Override
-    public int remove(Integer id) throws Exception {
-        return 0;
+
+            strSQLini = "FROM lineapedido where 1=1 "
+                    + "AND id_pedido=" + idLinpedido;
+
+            strCountSQL = "SELECT COUNT(*) " + strSQLini;
+            if (strWhere != null) {
+                strSQL += " " + strWhere + " ";
+                strCountSQL += " " + strWhere + " ";
+            }
+        }
+
     }
 }

@@ -1,23 +1,41 @@
 package dao.specificimplementation;
 
-import bean.genericimplementation.TableGenericBeanImplementation;
 import bean.helper.MetaBeanHelper;
-import dao.genericimplementation.TableGenericDaoImplementation;
+import bean.specificimplementation.TipousuarioSpecificBeanImplementation;
+import bean.specificimplementation.UsuarioSpecificBeanImplementation;
 import java.sql.Connection;
 
-public class TicketEmpleadoSpecificDaoImplementation extends TableGenericDaoImplementation {
+public class TicketEmpleadoSpecificDaoImplementation extends TicketSpecificDaoImplementation {
+
+    private Integer idPedido = 1; // trampa
+    private Integer idUsuario = 0;
 
     public TicketEmpleadoSpecificDaoImplementation(Connection oPooledConnection, MetaBeanHelper oPuserBean_security, String strWhere) throws Exception {
-        super("ticket", oPooledConnection, oPuserBean_security, strWhere);
-    }
+        super(oPooledConnection, oPuserBean_security, strWhere);
 
-    @Override
-    public Integer set(TableGenericBeanImplementation oBean) throws Exception {
-        return 0;
-    }
+        UsuarioSpecificBeanImplementation oUsuario = (UsuarioSpecificBeanImplementation) oPuserBean_security.getBean();
+        idUsuario = oUsuario.getId();
+        MetaBeanHelper ombhTipousuario = (MetaBeanHelper) oUsuario.getObj_tipousuario();
+        TipousuarioSpecificBeanImplementation oTipousuario = (TipousuarioSpecificBeanImplementation) ombhTipousuario.getBean();
+        if (oTipousuario.getId() == 2) {
+            String strSQLini = "";
 
-    @Override
-    public int remove(Integer id) throws Exception {
-        return 0;
+            
+            strSQLini = "FROM ticket where 1=1 "
+                    + "AND (id IN (SELECT distinct id FROM ticket where id_pedido = " + idPedido + " and id_tipousuario=3 ) "
+                    + " OR  id IN (SELECT distinct ti.id FROM ticket ti, pedido p, usuario u "
+                    + "                    WHERE u.id_tipousuario=3 "
+                    + "                      AND u.id=p.id_usuario "
+                    + "                      AND ti.id_pedido= " + idPedido + ")"
+                    + ") ";
+
+            strSQL = "SELECT * " + strSQLini;
+
+            strCountSQL = "SELECT COUNT(*) " + strSQLini;
+            if (strWhere != null) {
+                strSQL += " " + strWhere + " ";
+                strCountSQL += " " + strWhere + " ";
+            }
+        }
     }
 }
