@@ -24,11 +24,10 @@ public class TicketEmpleadoSpecificDaoImplementation extends TicketSpecificDaoIm
             TiendaSpecificBeanImplementation oTienda = (TiendaSpecificBeanImplementation) oUsuario.getObj_tienda().getBean();
             idTienda = oTienda.getId();
             strSQLini = "FROM ticket where 1=1 "
-                    + " OR  id IN (SELECT distinct ti.id FROM usuario u, tienda t, pedido p, ticket ti"
-                    + "                    WHERE u.id_tienda=" + idTienda
-                    + "                      AND p.id_usuario=u.id "
-                    + "                      AND p.id_tienda=" + idTienda
-                    + "                      AND p.id= ti.id_pedido ) ";
+                    + " AND  id IN (SELECT ti.id FROM pedido p, ticket ti, tienda t"
+                    + " WHERE p.id_tienda=" + idTienda
+                    + " AND t.id=" + idTienda
+                    + " AND ti.id_pedido=p.id) ";            
 
             strSQL = "SELECT * " + strSQLini;
             strCountSQL = "SELECT COUNT(*) " + strSQLini;
