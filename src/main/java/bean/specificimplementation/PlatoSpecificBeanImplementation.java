@@ -66,7 +66,6 @@ public class PlatoSpecificBeanImplementation extends TableGenericBeanImplementat
             IsRequired = true,
             RegexPattern = "[0-9]*\\.?[0-9]*",
             RegexHelp = "Solo dígitos",
-            IsForeignKeyDescriptor = true,
             Width = 3,
             MaxLength = 5,
             IsVisible = true
