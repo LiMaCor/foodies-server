@@ -87,6 +87,20 @@ public class TicketSpecificBeanImplementation extends TableGenericBeanImplementa
     )
     private String descripcion = "";
 
+    @Expose
+    @MetaPropertyBeanInterface(
+            ShortName = "Importe",
+            LongName = "Importe",
+            Description = "Importe del pedido",
+            Type = EnumHelper.FieldType.Decimal,
+            IsRequired = true,
+            RegexPattern = "[0-9]*\\.?[0-9]*",
+            RegexHelp = "Solo dígitos",
+            IsForeignKeyDescriptor = true,
+            IsVisible = true
+    )
+    private Double importe = 0.0;
+
     @Expose(serialize = false)
     @MetaPropertyBeanInterface(
             Type = EnumHelper.FieldType.ForeignId
@@ -133,6 +147,14 @@ public class TicketSpecificBeanImplementation extends TableGenericBeanImplementa
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(Double importe) {
+        this.importe = importe;
     }
 
     public Integer getId_pedido() {
