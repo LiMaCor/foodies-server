@@ -113,7 +113,7 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     @MetaPropertyBeanInterface(
             ShortName = "Tel.1",
             LongName = "Teléfono 1",
-            Description = "Primer teléfono del usuario",
+            Description = "Teléfono del usuario",
             Type = EnumHelper.FieldType.String,
             IsRequired = false,
             IsForeignKeyDescriptor = false,
@@ -127,7 +127,7 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     @MetaPropertyBeanInterface(
             ShortName = "Dir.",
             LongName = "Dirección",
-            Description = "Dirección del cliente",
+            Description = "Dirección del usuario",
             Type = EnumHelper.FieldType.String,
             IsRequired = false,
             RegexPattern = RegexConstants.direction,
@@ -157,7 +157,7 @@ public class UsuarioSpecificBeanImplementation extends TableGenericBeanImplement
     @MetaPropertyBeanInterface(
             ShortName = "Cod. Postal",
             LongName = "Código Postal",
-            Description = "Código Postal del cliente",
+            Description = "Código Postal del usuario",
             Type = EnumHelper.FieldType.Integer,
             RegexPattern = "[0-9]*",
             RegexHelp = "5 dígitos",
